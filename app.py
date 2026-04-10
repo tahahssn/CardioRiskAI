@@ -35,6 +35,106 @@ html, body, [class*="css"] {
 /* ─── HIDE STREAMLIT CHROME ─── */
 #MainMenu, footer, header { visibility: hidden; }
 
+/* ─── ANIMATIONS ─── */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 0 rgba(58, 125, 90, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(58, 125, 90, 0.2);
+    }
+}
+
+@keyframes slideInGauge {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Animation Classes */
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.8s ease-out forwards;
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
 /* ─── TYPOGRAPHY ─── */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', sans-serif !important;
@@ -55,6 +155,7 @@ p, li, span, div {
     letter-spacing: 4px;
     text-transform: uppercase;
     margin-bottom: 1rem;
+    animation: fadeInUp 0.8s ease-out;
 }
 
 .hero-title {
@@ -65,6 +166,7 @@ p, li, span, div {
     letter-spacing: -3px;
     color: #f0efe8;
     margin-bottom: 1.25rem;
+    animation: fadeInUp 0.8s ease-out 0.1s both;
 }
 
 .hero-title em {
@@ -78,6 +180,7 @@ p, li, span, div {
     line-height: 1.7;
     font-weight: 400;
     max-width: 480px;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 .nav-bar {
@@ -87,6 +190,7 @@ p, li, span, div {
     padding-bottom: 2rem;
     border-bottom: 1px solid rgba(255,255,255,0.06);
     margin-bottom: 3rem;
+    animation: fadeInUp 0.8s ease-out;
 }
 
 .nav-brand {
@@ -105,6 +209,12 @@ p, li, span, div {
     border: 1px solid rgba(58,125,90,0.25);
     padding: 4px 12px;
     letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.nav-status:hover {
+    background: rgba(58,125,90,0.2);
+    box-shadow: 0 0 15px rgba(58,125,90,0.15);
 }
 
 /* ─── METRIC CARDS ─── */
@@ -115,12 +225,21 @@ p, li, span, div {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.05);
     margin-bottom: 3rem;
+    animation: fadeInUp 0.8s ease-out 0.3s both;
 }
 
 .metric-cell {
     background: #0a0a0a;
     padding: 1.5rem 1.25rem;
     position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+}
+
+.metric-cell:hover {
+    background: rgba(58,125,90,0.05);
+    border: 1px solid rgba(58,125,90,0.2);
+    transform: translateY(-4px);
 }
 
 .metric-n {
@@ -164,6 +283,7 @@ p, li, span, div {
     margin: 2.5rem 0;
     position: relative;
     text-align: center;
+    animation: fadeIn 0.8s ease-out;
 }
 
 .divider-label {
@@ -183,6 +303,7 @@ p, li, span, div {
     padding-bottom: 0.9rem;
     border-bottom: 1px solid rgba(58,125,90,0.18);
     margin-bottom: 1.75rem;
+    animation: slideInLeft 0.8s ease-out;
 }
 
 /* ─── LABELS ─── */
@@ -193,6 +314,7 @@ p, li, span, div {
     color: #3a3a3a !important;
     letter-spacing: 2px !important;
     text-transform: uppercase !important;
+    animation: fadeIn 0.6s ease-out;
 }
 
 /* ─── SLIDER ─── */
@@ -205,6 +327,7 @@ p, li, span, div {
 .stSlider > div > div > div > div {
     background: #3a7d5a !important;
     border-radius: 0 !important;
+    transition: all 0.2s ease !important;
 }
 
 .stSlider > div > div > div > div > div {
@@ -213,7 +336,13 @@ p, li, span, div {
     border-radius: 50% !important;
     width: 10px !important;
     height: 10px !important;
-    box-shadow: none !important;
+    box-shadow: 0 0 10px rgba(58,125,90,0.3) !important;
+    transition: all 0.2s ease !important;
+}
+
+.stSlider > div > div > div > div > div:hover {
+    box-shadow: 0 0 20px rgba(58,125,90,0.5) !important;
+    transform: scale(1.2) !important;
 }
 
 /* ─── INPUTS ─── */
@@ -228,11 +357,12 @@ p, li, span, div {
     font-size: 0.85rem !important;
     padding: 8px 0 !important;
     box-shadow: none !important;
+    transition: all 0.3s ease !important;
 }
 
 .stNumberInput > div > div > input:focus {
     border-bottom-color: #3a7d5a !important;
-    box-shadow: none !important;
+    box-shadow: 0 2px 8px rgba(58,125,90,0.2) !important;
 }
 
 /* ─── SELECTBOX ─── */
@@ -245,12 +375,13 @@ p, li, span, div {
     box-shadow: none !important;
     font-family: 'Space Grotesk', sans-serif !important;
     font-size: 0.85rem !important;
+    transition: all 0.3s ease !important;
 }
 
 .stSelectbox > div > div:focus,
 .stSelectbox > div > div:hover {
     border-bottom-color: #3a7d5a !important;
-    box-shadow: none !important;
+    box-shadow: 0 2px 8px rgba(58,125,90,0.2) !important;
 }
 
 /* ─── BUTTON ─── */
@@ -265,13 +396,18 @@ p, li, span, div {
     border-radius: 0 !important;
     padding: 14px 52px !important;
     width: 100% !important;
-    transition: all 0.2s ease !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .stButton > button:hover {
     background: #3a7d5a !important;
     color: #f0efe8 !important;
+    box-shadow: 0 0 30px rgba(58,125,90,0.3) !important;
     transform: none !important;
+}
+
+.stButton > button:active {
+    transform: scale(0.98) !important;
 }
 
 /* ─── RESULT BOX ─── */
@@ -279,6 +415,13 @@ p, li, span, div {
     border: 1px solid rgba(58,125,90,0.25);
     padding: 2rem;
     margin-bottom: 2rem;
+    animation: scaleIn 0.6s ease-out;
+    transition: all 0.4s ease;
+}
+
+.result-box:hover {
+    border-color: rgba(58,125,90,0.4);
+    box-shadow: 0 10px 40px rgba(58,125,90,0.1);
 }
 
 .result-tag {
@@ -288,6 +431,7 @@ p, li, span, div {
     letter-spacing: 3px;
     text-transform: uppercase;
     margin-bottom: 1rem;
+    animation: fadeInUp 0.6s ease-out 0.1s both;
 }
 
 .result-head {
@@ -297,6 +441,7 @@ p, li, span, div {
     letter-spacing: -1.5px;
     line-height: 1;
     margin-bottom: 0.75rem;
+    animation: fadeInUp 0.6s ease-out 0.2s both;
 }
 
 .result-sub {
@@ -305,6 +450,7 @@ p, li, span, div {
     line-height: 1.7;
     margin-bottom: 1.5rem;
     font-weight: 400;
+    animation: fadeInUp 0.6s ease-out 0.3s both;
 }
 
 .risk-number {
@@ -314,6 +460,7 @@ p, li, span, div {
     color: #3a7d5a;
     letter-spacing: -2px;
     line-height: 1;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
 .risk-unit {
@@ -323,19 +470,37 @@ p, li, span, div {
     letter-spacing: 3px;
     margin-top: 0.5rem;
     text-transform: uppercase;
+    animation: fadeIn 0.6s ease-out 0.5s both;
 }
 
 .gauge-track {
     height: 3px;
     background: rgba(255,255,255,0.06);
     margin: 1.5rem 0 0.5rem;
+    animation: fadeIn 0.6s ease-out 0.6s both;
+}
+
+.gauge-track > div {
+    animation: slideInGauge 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s both;
 }
 
 .rec-item {
     border-left: 2px solid rgba(58,125,90,0.3);
     padding: 0.75rem 1rem;
     margin-bottom: 0.75rem;
+    animation: slideInLeft 0.6s ease-out;
+    transition: all 0.3s ease;
 }
+
+.rec-item:hover {
+    border-left-color: #3a7d5a;
+    padding-left: 1.25rem;
+}
+
+.rec-item:nth-child(1) { animation-delay: 0.2s; }
+.rec-item:nth-child(2) { animation-delay: 0.3s; }
+.rec-item:nth-child(3) { animation-delay: 0.4s; }
+.rec-item:nth-child(4) { animation-delay: 0.5s; }
 
 .rec-n {
     font-family: 'Space Mono', monospace;
@@ -359,6 +524,7 @@ p, li, span, div {
     font-family: 'Space Grotesk', sans-serif !important;
     font-size: 0.8rem !important;
     color: #a0a09a !important;
+    animation: slideInRight 0.6s ease-out;
 }
 
 /* ─── FOOTER ─── */
@@ -369,6 +535,7 @@ p, li, span, div {
     padding-top: 1.5rem;
     border-top: 1px solid rgba(255,255,255,0.05);
     margin-top: 3rem;
+    animation: fadeInUp 0.8s ease-out;
 }
 
 .footer-left {
@@ -388,7 +555,10 @@ p, li, span, div {
 /* ─── SCROLLBAR ─── */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #0a0a0a; }
-::-webkit-scrollbar-thumb { background: #2a2a2a; }
+::-webkit-scrollbar-thumb { 
+    background: #2a2a2a;
+    transition: background 0.3s ease;
+}
 ::-webkit-scrollbar-thumb:hover { background: #3a7d5a; }
 
 /* ─── MISC ─── */
@@ -563,7 +733,7 @@ if predict_button:
         with rec_col:
             st.markdown("""
             <div style='padding-top:0.5rem'>
-                <div style='font-family:"Space Mono",monospace;font-size:0.62rem;color:#3a7d5a;letter-spacing:3px;margin-bottom:1.5rem'>
+                <div style='font-family:"Space Mono",monospace;font-size:0.62rem;color:#3a7d5a;letter-spacing:3px;margin-bottom:1.5rem;animation:slideInLeft 0.6s ease-out'>
                     // CLINICAL PROTOCOL
                 </div>
                 <div class='rec-item' style='border-left-color:#3a7d5a'>
@@ -613,7 +783,7 @@ if predict_button:
         with rec_col:
             st.markdown("""
             <div style='padding-top:0.5rem'>
-                <div style='font-family:"Space Mono",monospace;font-size:0.62rem;color:#3a7d5a;letter-spacing:3px;margin-bottom:1.5rem'>
+                <div style='font-family:"Space Mono",monospace;font-size:0.62rem;color:#3a7d5a;letter-spacing:3px;margin-bottom:1.5rem;animation:slideInLeft 0.6s ease-out'>
                     // PREVENTIVE PROTOCOL
                 </div>
                 <div class='rec-item' style='border-left-color:rgba(255,255,255,0.15)'>
