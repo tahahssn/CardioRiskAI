@@ -250,9 +250,9 @@ function animateGauge(elId, targetPct){
 # ─── LOAD MODELS ───────────────────────────────────────────────
 with st.spinner('Initializing...'):
     time.sleep(0.3)
-    model = joblib.load(r"D:\ML-Practice\HeartDiseaseProject\KNN_heart.pkl")
-    scaler = joblib.load(r"D:\ML-Practice\HeartDiseaseProject\scalar.pkl")
-    expected_columns = joblib.load(r"D:\ML-Practice\HeartDiseaseProject\columns.pkl")
+    model = joblib.load(r"KNN_heart.pkl")
+    scaler = joblib.load(r"scalar.pkl")
+    expected_columns = joblib.load(r"columns.pkl")
 
 # ─── NAV ───────────────────────────────────────────────────────
 st.markdown("""
