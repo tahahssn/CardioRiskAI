@@ -30,16 +30,16 @@ A machine learning-powered web application that predicts the risk of cardiovascu
 ---
 
 ## 📁 Repository Structure
-```bash
-CardioRiskAI/
-├── heart.ipynb # Model training & EDA notebook
-├── app.py # Streamlit application (main version)
-├── app1.py # Streamlit application (alternate version)
-├── heart.csv # Dataset
-├── KNN_heart.pkl # Trained KNN model
-├── scalar.pkl # Fitted scaler for feature normalization
-├── columns.pkl # Feature column names
-└── requirements.txt # Python dependencies
+      ```bash
+      CardioRiskAI/
+      ├── heart.ipynb # Model training & EDA notebook
+      ├── app.py # Streamlit application (main version)
+      ├── app1.py # Streamlit application (alternate version)
+      ├── heart.csv # Dataset
+      ├── KNN_heart.pkl # Trained KNN model
+      ├── scalar.pkl # Fitted scaler for feature normalization
+      ├── columns.pkl # Feature column names
+      └── requirements.txt # Python dependencies.
 
 ## 🚀 How to Run Locally
 
