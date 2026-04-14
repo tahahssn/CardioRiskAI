@@ -30,6 +30,7 @@ A machine learning-powered web application that predicts the risk of cardiovascu
 ---
 
 ## 📁 Repository Structure
+```bash
 CardioRiskAI/
 ├── heart.ipynb # Model training & EDA notebook
 ├── app.py # Streamlit application (main version)
